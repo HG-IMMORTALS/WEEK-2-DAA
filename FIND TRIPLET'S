@@ -1,0 +1,52 @@
+#include <iostream>
+using namespace std;
+
+void findTriplets(int arr[], int n) {
+    bool found = false;
+
+    for(int i=0; i<n-2; i++) {
+        for(int j=i+1; j<n-1; j++) {
+            for(int k=j+1; k<n; k++) {
+                if(arr[i] + arr[j] == arr[k]) {
+                    cout << i+1 << ", " << j+1 << ", " << k+1 << endl;
+                    found = true;
+                }
+            }
+        }
+    }
+
+    if(!found)
+        cout << "No sequence found." << endl;
+}
+
+int main() {
+    int t, n;
+    cin >> t;
+
+    while(t--) {
+        cin >> n;
+        int arr[n];
+        for(int i=0; i<n; i++)
+            cin >> arr[i];
+        findTriplets(arr, n);
+    }
+
+    return 0;
+}
+
+
+
+INPUT:-
+3
+5 
+1 5 84 209 341
+10
+24 28 48 71 86 89 92 120 194 201
+15
+64 69 82 95 99 107 113 141 171 350 369 400 511 590 666
+
+
+OTPUT:-
+No sequence found.
+2, 7, 8
+1, 6, 9
